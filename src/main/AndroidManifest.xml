@@ -1,4 +1,4 @@
-<manifest  xmlns:android="http://schemas.android.com/apk/res/android" package="android-kinny-login-api-client">
+<manifest  xmlns:android="http://schemas.android.com/apk/res/android" package="AndroidKinnyLoginApiClient">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application />
