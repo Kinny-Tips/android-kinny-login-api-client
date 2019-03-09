@@ -23,6 +23,10 @@ public class DeviceRequest implements Serializable {
   private String id = null;
   @SerializedName("deviceOs")
   private String deviceOs = null;
+  @SerializedName("deviceOsVersion")
+  private String deviceOsVersion = null;
+  @SerializedName("appVersion")
+  private String appVersion = null;
   @SerializedName("fcmToken")
   private String fcmToken = null;
 
@@ -49,6 +53,26 @@ public class DeviceRequest implements Serializable {
   /**
    **/
   @ApiModelProperty(required = true, value = "")
+  public String getDeviceOsVersion() {
+    return deviceOsVersion;
+  }
+  public void setDeviceOsVersion(String deviceOsVersion) {
+    this.deviceOsVersion = deviceOsVersion;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
+  public String getAppVersion() {
+    return appVersion;
+  }
+  public void setAppVersion(String appVersion) {
+    this.appVersion = appVersion;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
   public String getFcmToken() {
     return fcmToken;
   }
@@ -68,6 +92,8 @@ public class DeviceRequest implements Serializable {
     DeviceRequest deviceRequest = (DeviceRequest) o;
     return (this.id == null ? deviceRequest.id == null : this.id.equals(deviceRequest.id)) &&
         (this.deviceOs == null ? deviceRequest.deviceOs == null : this.deviceOs.equals(deviceRequest.deviceOs)) &&
+        (this.deviceOsVersion == null ? deviceRequest.deviceOsVersion == null : this.deviceOsVersion.equals(deviceRequest.deviceOsVersion)) &&
+        (this.appVersion == null ? deviceRequest.appVersion == null : this.appVersion.equals(deviceRequest.appVersion)) &&
         (this.fcmToken == null ? deviceRequest.fcmToken == null : this.fcmToken.equals(deviceRequest.fcmToken));
   }
 
@@ -76,6 +102,8 @@ public class DeviceRequest implements Serializable {
     int result = 17;
     result = 31 * result + (this.id == null ? 0: this.id.hashCode());
     result = 31 * result + (this.deviceOs == null ? 0: this.deviceOs.hashCode());
+    result = 31 * result + (this.deviceOsVersion == null ? 0: this.deviceOsVersion.hashCode());
+    result = 31 * result + (this.appVersion == null ? 0: this.appVersion.hashCode());
     result = 31 * result + (this.fcmToken == null ? 0: this.fcmToken.hashCode());
     return result;
   }
@@ -87,6 +115,8 @@ public class DeviceRequest implements Serializable {
     
     sb.append("  id: ").append(id).append("\n");
     sb.append("  deviceOs: ").append(deviceOs).append("\n");
+    sb.append("  deviceOsVersion: ").append(deviceOsVersion).append("\n");
+    sb.append("  appVersion: ").append(appVersion).append("\n");
     sb.append("  fcmToken: ").append(fcmToken).append("\n");
     sb.append("}\n");
     return sb.toString();
