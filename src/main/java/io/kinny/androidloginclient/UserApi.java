@@ -15,7 +15,6 @@ import com.android.volley.VolleyError;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
-import android.util.Pair;
 
 import java.util.ArrayList;
 import java.util.HashMap;
