@@ -26,7 +26,10 @@ public class UserDto {
   private String email = null;
   @SerializedName("phoneNumber")
   private String phoneNumber = null;
-
+  @SerializedName("phoneNumberConfirmed")
+  private Boolean phoneNumberConfirmed = null;
+  @SerializedName("emailConfirmed")
+  private Boolean emailConfirmed = null;
   /**
    **/
   @ApiModelProperty(value = "")
@@ -65,6 +68,28 @@ public class UserDto {
   }
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public Boolean getPhoneNumberConfirmed() {
+    return phoneNumberConfirmed;
+  }
+  public void setPhoneNumberConfirmed(Boolean phoneNumberConfirmed) {
+    this.phoneNumberConfirmed = phoneNumberConfirmed;
+  }
+
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public Boolean getEmailConfirmed() {
+    return emailConfirmed;
+  }
+  public void setEmailConfirmed(Boolean emailConfirmed) {
+    this.phoneNumberConfirmed = phoneNumberConfirmed;
   }
 
 
