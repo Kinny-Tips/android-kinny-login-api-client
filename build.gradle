@@ -4,9 +4,10 @@ project.version = '1.0.0'
 buildscript {
     repositories {
         jcenter()
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3'
+        classpath 'com.android.tools.build:gradle:3.3.2'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
     }
 }
@@ -14,6 +15,7 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        google()
     }
 }
 
@@ -39,7 +41,7 @@ android {
             def outputFile = output.outputFile
             if (outputFile != null && outputFile.name.endsWith('.aar')) {
                 def fileName = "${project.name}-${variant.baseName}-${version}.aar"
-                output.outputFile = new File(outputFile.parent, fileName)
+                output.outputFileName = new File(fileName)
             }
         }
     }
