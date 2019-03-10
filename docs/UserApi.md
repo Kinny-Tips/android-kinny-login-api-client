@@ -1,16 +1,18 @@
 # UserApi
 
-All URIs are relative to *https://virtserver.swaggerhub.com/chancity9/kinny-login-api/1*
+All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**accessToken**](UserApi.md#accessToken) | **GET** /api/User/AccessToken | 
-[**config**](UserApi.md#config) | **GET** /api/User/Config | 
+[**addExternalLogin**](UserApi.md#addExternalLogin) | **POST** /api/User/ExternalLogin | 
 [**linkDevice**](UserApi.md#linkDevice) | **POST** /api/User/Device | 
-[**linkLogin**](UserApi.md#linkLogin) | **GET** /api/User/LinkLogin/{provider} | 
 [**login**](UserApi.md#login) | **POST** /api/User/Login | 
+[**profileInformation**](UserApi.md#profileInformation) | **GET** /api/User/ProfileInformation | 
 [**register**](UserApi.md#register) | **POST** /api/User/Register | 
-[**sendSms**](UserApi.md#sendSms) | **POST** /api/User/SendSmsCode/{phoneNumber} | 
+[**removeDevice**](UserApi.md#removeDevice) | **DELETE** /api/User/RemoveDevice | 
+[**removeExternalLogin**](UserApi.md#removeExternalLogin) | **DELETE** /api/User/ExternalLogin | 
+[**sendSms**](UserApi.md#sendSms) | **POST** /api/User/SendSmsCode | 
 [**verifySms**](UserApi.md#verifySms) | **POST** /api/User/VerifySmsCode | 
 
 
@@ -23,7 +25,7 @@ Method | HTTP request | Description
 ### Example
 ```java
 // Import classes:
-//import .UserApi;
+//import io.kinny.login.api.UserApi;
 
 UserApi apiInstance = new UserApi();
 try {
@@ -51,33 +53,37 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
-<a name="config"></a>
-# **config**
-> ConfigResponse config()
+<a name="addExternalLogin"></a>
+# **addExternalLogin**
+> ExternalLoginResponse addExternalLogin(model)
 
 
 
 ### Example
 ```java
 // Import classes:
-//import .UserApi;
+//import io.kinny.login.api.UserApi;
 
 UserApi apiInstance = new UserApi();
+ExternalLoginRequest model = new ExternalLoginRequest(); // ExternalLoginRequest | 
 try {
-    ConfigResponse result = apiInstance.config();
+    ExternalLoginResponse result = apiInstance.addExternalLogin(model);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#config");
+    System.err.println("Exception when calling UserApi#addExternalLogin");
     e.printStackTrace();
 }
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **model** | [**ExternalLoginRequest**](ExternalLoginRequest.md)|  | [optional]
 
 ### Return type
 
-[**ConfigResponse**](ConfigResponse.md)
+[**ExternalLoginResponse**](ExternalLoginResponse.md)
 
 ### Authorization
 
@@ -85,7 +91,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
  - **Accept**: text/plain, application/json, text/json
 
 <a name="linkDevice"></a>
@@ -97,7 +103,7 @@ This endpoint does not need any parameter.
 ### Example
 ```java
 // Import classes:
-//import .UserApi;
+//import io.kinny.login.api.UserApi;
 
 UserApi apiInstance = new UserApi();
 DeviceRequest model = new DeviceRequest(); // DeviceRequest | 
@@ -129,47 +135,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
  - **Accept**: text/plain, application/json, text/json
 
-<a name="linkLogin"></a>
-# **linkLogin**
-> LinkLoginResponse linkLogin(provider)
-
-
-
-### Example
-```java
-// Import classes:
-//import .UserApi;
-
-UserApi apiInstance = new UserApi();
-String provider = "provider_example"; // String | 
-try {
-    LinkLoginResponse result = apiInstance.linkLogin(provider);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling UserApi#linkLogin");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **provider** | **String**|  |
-
-### Return type
-
-[**LinkLoginResponse**](LinkLoginResponse.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
 <a name="login"></a>
 # **login**
 > TokenResponse login(model)
@@ -179,7 +144,7 @@ Name | Type | Description  | Notes
 ### Example
 ```java
 // Import classes:
-//import .UserApi;
+//import io.kinny.login.api.UserApi;
 
 UserApi apiInstance = new UserApi();
 UserLoginRequest model = new UserLoginRequest(); // UserLoginRequest | 
@@ -211,6 +176,43 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
  - **Accept**: text/plain, application/json, text/json
 
+<a name="profileInformation"></a>
+# **profileInformation**
+> ProfileInformationResponse profileInformation()
+
+
+
+### Example
+```java
+// Import classes:
+//import io.kinny.login.api.UserApi;
+
+UserApi apiInstance = new UserApi();
+try {
+    ProfileInformationResponse result = apiInstance.profileInformation();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling UserApi#profileInformation");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ProfileInformationResponse**](ProfileInformationResponse.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
 <a name="register"></a>
 # **register**
 > TokenResponse register(model)
@@ -220,7 +222,7 @@ Name | Type | Description  | Notes
 ### Example
 ```java
 // Import classes:
-//import .UserApi;
+//import io.kinny.login.api.UserApi;
 
 UserApi apiInstance = new UserApi();
 UserRegisterRequest model = new UserRegisterRequest(); // UserRegisterRequest | 
@@ -252,21 +254,103 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
  - **Accept**: text/plain, application/json, text/json
 
-<a name="sendSms"></a>
-# **sendSms**
-> TokenResponse sendSms(phoneNumber)
+<a name="removeDevice"></a>
+# **removeDevice**
+> BaseResponse removeDevice(model)
 
 
 
 ### Example
 ```java
 // Import classes:
-//import .UserApi;
+//import io.kinny.login.api.UserApi;
 
 UserApi apiInstance = new UserApi();
-String phoneNumber = "phoneNumber_example"; // String | 
+RemoveDeviceRequest model = new RemoveDeviceRequest(); // RemoveDeviceRequest | 
 try {
-    TokenResponse result = apiInstance.sendSms(phoneNumber);
+    BaseResponse result = apiInstance.removeDevice(model);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling UserApi#removeDevice");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **model** | [**RemoveDeviceRequest**](RemoveDeviceRequest.md)|  | [optional]
+
+### Return type
+
+[**BaseResponse**](BaseResponse.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Accept**: text/plain, application/json, text/json
+
+<a name="removeExternalLogin"></a>
+# **removeExternalLogin**
+> BaseResponse removeExternalLogin(model)
+
+
+
+### Example
+```java
+// Import classes:
+//import io.kinny.login.api.UserApi;
+
+UserApi apiInstance = new UserApi();
+RemoveExternalLoginRequest model = new RemoveExternalLoginRequest(); // RemoveExternalLoginRequest | 
+try {
+    BaseResponse result = apiInstance.removeExternalLogin(model);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling UserApi#removeExternalLogin");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **model** | [**RemoveExternalLoginRequest**](RemoveExternalLoginRequest.md)|  | [optional]
+
+### Return type
+
+[**BaseResponse**](BaseResponse.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+ - **Accept**: text/plain, application/json, text/json
+
+<a name="sendSms"></a>
+# **sendSms**
+> TokenResponse sendSms(model)
+
+
+
+### Example
+```java
+// Import classes:
+//import io.kinny.login.api.UserApi;
+
+UserApi apiInstance = new UserApi();
+SendSmsRequest model = new SendSmsRequest(); // SendSmsRequest | 
+try {
+    TokenResponse result = apiInstance.sendSms(model);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserApi#sendSms");
@@ -278,7 +362,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **phoneNumber** | **String**|  |
+ **model** | [**SendSmsRequest**](SendSmsRequest.md)|  | [optional]
 
 ### Return type
 
@@ -290,7 +374,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
  - **Accept**: text/plain, application/json, text/json
 
 <a name="verifySms"></a>
@@ -302,10 +386,10 @@ Name | Type | Description  | Notes
 ### Example
 ```java
 // Import classes:
-//import .UserApi;
+//import io.kinny.login.api.UserApi;
 
 UserApi apiInstance = new UserApi();
-VerifyPhoneRequest model = new VerifyPhoneRequest(); // VerifyPhoneRequest | 
+VerifySmsRequest model = new VerifySmsRequest(); // VerifySmsRequest | 
 try {
     TokenResponse result = apiInstance.verifySms(model);
     System.out.println(result);
@@ -319,7 +403,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **model** | [**VerifyPhoneRequest**](VerifyPhoneRequest.md)|  | [optional]
+ **model** | [**VerifySmsRequest**](VerifySmsRequest.md)|  | [optional]
 
 ### Return type
 

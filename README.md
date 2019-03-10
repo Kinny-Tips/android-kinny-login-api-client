@@ -1,4 +1,4 @@
-# kinny-login-api
+# io.kinny
 
 ## Requirements
 
@@ -26,8 +26,8 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-    <groupId>io.kinny</groupId>
-    <artifactId>kinny-login-api</artifactId>
+    <groupId>kinny-login-api-client</groupId>
+    <artifactId>io.kinny</artifactId>
     <version>1.0.0</version>
     <scope>compile</scope>
 </dependency>
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.kinny:kinny-login-api:1.0.0"
+compile "kinny-login-api-client:io.kinny:1.0.0"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/kinny-login-api-1.0.0.jar
+* target/io.kinny-1.0.0.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -58,7 +58,7 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 ```java
 
-import .UserApi;
+import io.kinny.login.api.UserApi;
 
 public class UserApiExample {
 
@@ -78,30 +78,40 @@ public class UserApiExample {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://virtserver.swaggerhub.com/chancity9/kinny-login-api/1*
+All URIs are relative to *https://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *UserApi* | [**accessToken**](docs/UserApi.md#accessToken) | **GET** /api/User/AccessToken | 
-*UserApi* | [**config**](docs/UserApi.md#config) | **GET** /api/User/Config | 
+*UserApi* | [**addExternalLogin**](docs/UserApi.md#addExternalLogin) | **POST** /api/User/ExternalLogin | 
 *UserApi* | [**linkDevice**](docs/UserApi.md#linkDevice) | **POST** /api/User/Device | 
-*UserApi* | [**linkLogin**](docs/UserApi.md#linkLogin) | **GET** /api/User/LinkLogin/{provider} | 
 *UserApi* | [**login**](docs/UserApi.md#login) | **POST** /api/User/Login | 
+*UserApi* | [**profileInformation**](docs/UserApi.md#profileInformation) | **GET** /api/User/ProfileInformation | 
 *UserApi* | [**register**](docs/UserApi.md#register) | **POST** /api/User/Register | 
-*UserApi* | [**sendSms**](docs/UserApi.md#sendSms) | **POST** /api/User/SendSmsCode/{phoneNumber} | 
+*UserApi* | [**removeDevice**](docs/UserApi.md#removeDevice) | **DELETE** /api/User/RemoveDevice | 
+*UserApi* | [**removeExternalLogin**](docs/UserApi.md#removeExternalLogin) | **DELETE** /api/User/ExternalLogin | 
+*UserApi* | [**sendSms**](docs/UserApi.md#sendSms) | **POST** /api/User/SendSmsCode | 
 *UserApi* | [**verifySms**](docs/UserApi.md#verifySms) | **POST** /api/User/VerifySmsCode | 
 
 
 ## Documentation for Models
 
  - [ApiError](docs/ApiError.md)
- - [ConfigResponse](docs/ConfigResponse.md)
+ - [BaseResponse](docs/BaseResponse.md)
+ - [DeviceDto](docs/DeviceDto.md)
  - [DeviceRequest](docs/DeviceRequest.md)
- - [LinkLoginResponse](docs/LinkLoginResponse.md)
+ - [ExternalLoginDto](docs/ExternalLoginDto.md)
+ - [ExternalLoginRequest](docs/ExternalLoginRequest.md)
+ - [ExternalLoginResponse](docs/ExternalLoginResponse.md)
+ - [ProfileInformationResponse](docs/ProfileInformationResponse.md)
+ - [RemoveDeviceRequest](docs/RemoveDeviceRequest.md)
+ - [RemoveExternalLoginRequest](docs/RemoveExternalLoginRequest.md)
+ - [SendSmsRequest](docs/SendSmsRequest.md)
  - [TokenResponse](docs/TokenResponse.md)
+ - [UserDto](docs/UserDto.md)
  - [UserLoginRequest](docs/UserLoginRequest.md)
  - [UserRegisterRequest](docs/UserRegisterRequest.md)
- - [VerifyPhoneRequest](docs/VerifyPhoneRequest.md)
+ - [VerifySmsRequest](docs/VerifySmsRequest.md)
 
 
 ## Documentation for Authorization
