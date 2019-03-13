@@ -23,11 +23,11 @@ public class TokenResponse {
   @SerializedName("token")
   private String token = null;
   public enum TokenTypeEnum {
-    @SerializedName("0")deviceVerification(0),  
-    @SerializedName("1")smsClientVerification(1),  
-    @SerializedName("2")smsServerVerification(2),  
-    @SerializedName("3")refresh(3),  
-    @SerializedName("4")access(4), 
+    @SerializedName("0")deviceVerification,  
+    @SerializedName("1")smsClientVerification,  
+    @SerializedName("2")smsServerVerification,  
+    @SerializedName("3")refresh,  
+    @SerializedName("4")access, 
   };
   @SerializedName("tokenType")
   private TokenTypeEnum tokenType = null;
